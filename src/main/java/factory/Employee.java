@@ -1,9 +1,6 @@
 package factory;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Type;
 
@@ -19,12 +16,12 @@ import java.util.Date;
                 name = "name_last")})
 @Getter
 @Setter
-@NoArgsConstructor
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     private int id;
     @Column(name = "name_first")
     private String fName;
@@ -33,22 +30,30 @@ public class Employee {
     @Column
     private double salary;
 
-    @Column
-    private int department_id;
 
-    @Column
-    private int post_id;
 
     @CreationTimestamp
     @Type(type = "timestamp")
     @Column(name = "date_create")
     private Date dateCreate;
 
-    public Employee(String fName, String LName, double salary, String email, int department_id, int post_id) {
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "employee")
+    private PhoneNumber phoneNumber;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id", nullable = false)
+    private Post post_id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
+
+    public Employee(String fName, String LName, double salary, Post post_id, Department department, Date dateCreate) {
         this.fName = fName;
         this.LName = LName;
         this.salary = salary;
-        this.department_id = department_id;
         this.post_id = post_id;
+        this.department = department;
+        this.dateCreate = dateCreate;
     }
 }

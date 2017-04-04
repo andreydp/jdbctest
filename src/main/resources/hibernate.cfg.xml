@@ -10,5 +10,8 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="hibernate.connection.autocommit">true</property>
         <mapping class="factory.Employee"/>
+        <mapping class="factory.Department"/>
+        <mapping class="factory.PhoneNumber"/>
+        <mapping class="factory.Post"/>
     </session-factory>
 </hibernate-configuration>

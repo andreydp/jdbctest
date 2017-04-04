@@ -2,9 +2,11 @@ package factory;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,19 +31,36 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Employee emp = new Employee("First", "LastName", 10000d, "", 1, 1);
         SessionFactory sessionFactory = getSessionFactory();
         Session session = sessionFactory.openSession();
-        Query<Employee> query = session.createQuery
-                ("from Employee", Employee.class);
-        List<Employee> list = query.list();
-        for (Employee e : list)
-        {
-            System.out.println(e);
-        }
-        session.beginTransaction();
 
+        Query<Department> departmentQuery =
+                session.createQuery("from Department where id = :id", Department.class);
+        departmentQuery.setParameter("id", 1L);
+
+        Department department = departmentQuery.uniqueResult();
+
+        Query<Post> postQuery =
+                session.createQuery("from Post where id = :id", Post.class);
+        postQuery.setParameter("id", 1L);
+
+        Post post = postQuery.uniqueResult();
+
+        Employee emp = new Employee("Test", "test2", 50000, post, department, new Date());
+//        Query<Employee> query = session.createQuery
+//                ("from Employee", Employee.class);
+//        List<Employee> list = query.list();
+//        for (Employee e : list)
+//        {
+//            System.out.println(e);
+//        }
+
+        PhoneNumber phoneNumber = new PhoneNumber("380964720450", emp);
+        Transaction transaction = session.getTransaction();
+        transaction.begin();
         session.save(emp);
-        session.getTransaction().commit();
+        session.save(phoneNumber);
+        emp.setPhoneNumber(phoneNumber);
+        transaction.commit();
     }
 }
