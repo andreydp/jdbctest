@@ -25,7 +25,7 @@ public class PhoneNumber {
     @Column(length = 15)
     private String number;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
     private Employee employee;
 

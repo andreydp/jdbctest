@@ -119,227 +119,233 @@
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="35" parent="4" name="FKgy4qe3dnqrm3ktd76sxp7n4c2">
+      <foreign-key id="35" parent="4" name="FK3mxi6om2wmkx2o6w778va4uux">
+        <columns>post_id</columns>
+        <ref-key>posts.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="36" parent="4" name="FKgy4qe3dnqrm3ktd76sxp7n4c2">
         <columns>department_id</columns>
         <ref-key>departments.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="36" parent="5" name="id">
+      <column id="37" parent="5" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11) unsigned</data-type>
       </column>
-      <column id="37" parent="5" name="employee_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11) unsigned</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="38" parent="5" name="course_id">
+      <column id="38" parent="5" name="employee_id">
         <mandatory>1</mandatory>
         <data-type>int(11) unsigned</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="39" parent="5" name="date_start">
+      <column id="39" parent="5" name="course_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11) unsigned</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="40" parent="5" name="date_start">
         <mandatory>1</mandatory>
         <data-type>date</data-type>
       </column>
-      <column id="40" parent="5" name="date_finish">
+      <column id="41" parent="5" name="date_finish">
         <data-type>date</data-type>
       </column>
-      <column id="41" parent="5" name="is_organization_paid">
+      <column id="42" parent="5" name="is_organization_paid">
         <mandatory>1</mandatory>
         <data-type>tinyint(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="42" parent="5" name="date_create">
+      <column id="43" parent="5" name="date_create">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <key id="43" parent="5" name="PRIMARY">
+      <key id="44" parent="5" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="44" parent="5" name="employees_courses_ibfk_1">
+      <foreign-key id="45" parent="5" name="employees_courses_ibfk_1">
         <columns>employee_id</columns>
         <ref-key>employees.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="45" parent="5" name="employees_courses_ibfk_2">
+      <foreign-key id="46" parent="5" name="employees_courses_ibfk_2">
         <columns>course_id</columns>
         <ref-key>courses.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="46" parent="6" name="id">
+      <column id="47" parent="6" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11) unsigned</data-type>
       </column>
-      <column id="47" parent="6" name="employee_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11) unsigned</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="48" parent="6" name="tangible_id">
+      <column id="48" parent="6" name="employee_id">
         <mandatory>1</mandatory>
         <data-type>int(11) unsigned</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="49" parent="6" name="uniq_number">
+      <column id="49" parent="6" name="tangible_id">
         <mandatory>1</mandatory>
         <data-type>int(11) unsigned</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="50" parent="6" name="date_create">
+      <column id="50" parent="6" name="uniq_number">
+        <mandatory>1</mandatory>
+        <data-type>int(11) unsigned</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="51" parent="6" name="date_create">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <index id="51" parent="6" name="uniq_number">
+      <index id="52" parent="6" name="uniq_number">
         <columns>uniq_number</columns>
         <unique>1</unique>
       </index>
-      <key id="52" parent="6" name="PRIMARY">
+      <key id="53" parent="6" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="53" parent="6" name="uniq_number">
+      <key id="54" parent="6" name="uniq_number">
         <columns>uniq_number</columns>
         <underlying-index>uniq_number</underlying-index>
       </key>
-      <foreign-key id="54" parent="6" name="employees_tangibles_ibfk_1">
+      <foreign-key id="55" parent="6" name="employees_tangibles_ibfk_1">
         <columns>employee_id</columns>
         <ref-key>employees.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="55" parent="6" name="employees_tangibles_ibfk_2">
+      <foreign-key id="56" parent="6" name="employees_tangibles_ibfk_2">
         <columns>tangible_id</columns>
         <ref-key>tangibles.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="56" parent="7" name="id">
+      <column id="57" parent="7" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11) unsigned</data-type>
       </column>
-      <column id="57" parent="7" name="title">
+      <column id="58" parent="7" name="title">
         <mandatory>1</mandatory>
         <data-type>varchar(200)</data-type>
         <default-expression>&apos;&apos;</default-expression>
       </column>
-      <column id="58" parent="7" name="date_create">
+      <column id="59" parent="7" name="date_create">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <key id="59" parent="7" name="PRIMARY">
+      <key id="60" parent="7" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="60" parent="8" name="id">
+      <column id="61" parent="8" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11) unsigned</data-type>
       </column>
-      <column id="61" parent="8" name="employee_id">
+      <column id="62" parent="8" name="employee_id">
         <mandatory>1</mandatory>
         <data-type>int(11) unsigned</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="62" parent="8" name="salary">
+      <column id="63" parent="8" name="salary">
         <mandatory>1</mandatory>
         <data-type>decimal(10,2)</data-type>
         <default-expression>&apos;0.00&apos;</default-expression>
       </column>
-      <column id="63" parent="8" name="date_pay">
+      <column id="64" parent="8" name="date_pay">
         <mandatory>1</mandatory>
         <data-type>date</data-type>
         <default-expression>&apos;0000-00-00&apos;</default-expression>
       </column>
-      <column id="64" parent="8" name="date_create">
+      <column id="65" parent="8" name="date_create">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <key id="65" parent="8" name="PRIMARY">
+      <key id="66" parent="8" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="66" parent="8" name="salaries_paid_ibfk_1">
+      <foreign-key id="67" parent="8" name="salaries_paid_ibfk_1">
         <columns>employee_id</columns>
         <ref-key>employees.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="67" parent="9" name="id">
+      <column id="68" parent="9" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11) unsigned</data-type>
       </column>
-      <column id="68" parent="9" name="title">
+      <column id="69" parent="9" name="title">
         <mandatory>1</mandatory>
         <data-type>varchar(200)</data-type>
         <default-expression>&apos;&apos;</default-expression>
       </column>
-      <column id="69" parent="9" name="price">
+      <column id="70" parent="9" name="price">
         <mandatory>1</mandatory>
         <data-type>decimal(10,2)</data-type>
       </column>
-      <column id="70" parent="9" name="description">
+      <column id="71" parent="9" name="description">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="71" parent="9" name="date_create">
+      <column id="72" parent="9" name="date_create">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <key id="72" parent="9" name="PRIMARY">
+      <key id="73" parent="9" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="73" parent="10" name="id">
+      <column id="74" parent="10" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11) unsigned</data-type>
       </column>
-      <column id="74" parent="10" name="employee_id">
+      <column id="75" parent="10" name="employee_id">
         <mandatory>1</mandatory>
         <data-type>int(11) unsigned</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="75" parent="10" name="day_start">
+      <column id="76" parent="10" name="day_start">
         <mandatory>1</mandatory>
         <data-type>datetime</data-type>
       </column>
-      <column id="76" parent="10" name="day_finish">
+      <column id="77" parent="10" name="day_finish">
         <data-type>datetime</data-type>
       </column>
-      <column id="77" parent="10" name="date_create">
+      <column id="78" parent="10" name="date_create">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <key id="78" parent="10" name="PRIMARY">
+      <key id="79" parent="10" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="79" parent="10" name="working_days_ibfk_1">
+      <foreign-key id="80" parent="10" name="working_days_ibfk_1">
         <columns>employee_id</columns>
         <ref-key>employees.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="80" parent="11" name="next_val">
+      <column id="81" parent="11" name="next_val">
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="81" parent="12" name="id">
+      <column id="82" parent="12" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="82" parent="12" name="number">
+      <column id="83" parent="12" name="number">
         <data-type>varchar(15)</data-type>
       </column>
-      <key id="83" parent="12" name="PRIMARY">
+      <key id="84" parent="12" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
