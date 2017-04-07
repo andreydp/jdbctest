@@ -14,6 +14,9 @@ import java.util.Date;
 @Table(name = "employees", indexes = {
         @Index(columnList = "name_first",
                 name = "name_last")})
+
+@SecondaryTable(name = "EMPLOYEE_DETAILS",
+        pkJoinColumns = @PrimaryKeyJoinColumn(name = "ID_EMPLOYEE"))
 @Getter
 @Setter
 @ToString
@@ -29,8 +32,20 @@ public class Employee {
     private String LName;
     @Column
     private double salary;
+    @Column(table = "EMPLOYEE_DETAILS")
+    private String city;
+    @Column(table = "EMPLOYEE_DETAILS")
+    private String streetName;
 
+    @Column(table = "EMPLOYEE_DETAILS")
+    private String zipCode;
 
+    @Column(table = "EMPLOYEE_DETAILS")
+    @Enumerated(EnumType.STRING)
+    private Sex sex = Sex.UNKNOWN;
+
+    @Embedded
+    private Car car;
 
     @CreationTimestamp
     @Type(type = "timestamp")

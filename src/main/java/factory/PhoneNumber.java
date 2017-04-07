@@ -20,13 +20,14 @@ import javax.persistence.*;
 public class PhoneNumber {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private int id;
     @Column(length = 15)
     private String number;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @PrimaryKeyJoinColumn
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "employee_id", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private Employee employee;
 
     public PhoneNumber(String number, Employee employee) {
